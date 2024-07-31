@@ -7,8 +7,8 @@ First, install necessary files
 ### Clone the Repository
 
 ```bash
-git clone [https://github.com/diginomads/open.git](https://github.com/diginomads/open.git)
-cd your-repository-name
+git clone [https://github.com/diginomads/open.git]
+cd open
 ```
 
 ### Install Dependencies
