@@ -7,7 +7,7 @@ First, install necessary files
 ### Clone the Repository
 
 ```bash
-git clone [https://github.com/diginomads/open.git]
+git clone https://github.com/diginomads/open.git
 cd open
 ```
 
