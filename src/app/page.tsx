@@ -7,9 +7,7 @@ import TeamSection from "./components/TeamSection";
 import OpenSourceFriends from "./components/OpenSourceFriends";
 import BookingSection from "./components/BookingSection";
 import Footer from "./components/Footer";
-// import MapChart from "./components/MapChart";
 import GrowthGraph from "./components/GrowthGraph";
-// import TotalBookingCard from "./components/TotalBookingCard";
 
 export default function Home() {
   return (
@@ -19,9 +17,7 @@ export default function Home() {
         <TabNavigation />
         <TabTableNavigation />
         <TabTabNavTwo />
-        {/* <MapChart /> */}
         <GrowthGraph /> 
-        {/* <TotalBookingCard /> */}
         <TeamSection />
         <OpenSourceFriends />
         <BookingSection />

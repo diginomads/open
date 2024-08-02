@@ -1,4 +1,3 @@
-// components/TeamSection.tsx
 import Image from 'next/image';
 
 const teamMembers = [
@@ -156,26 +155,25 @@ const teamMembers = [
 ];
 
 export default function TeamSection() {
-    return (
-      <div className="bg-white py-12 px-4">
-        <div className="max-w-7xl mx-auto">
-          <h2 className="text-center text-3xl font-bold mb-10">You are in good company</h2>
-          <p className="text-xl mb-10 text-center text-gray-500">Meet the team members, early adopters, investors and community members</p>
-          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-8">
-            {teamMembers.map(member => (
-              <div key={member.name} className="text-center space-y-2 transition duration-300 ease-in-out hover:scale-105">
-                <div className="w-24 h-24 mx-auto rounded-full overflow-hidden border-2 border-gray-300 hover:border-gray-500">
-                  <Image src={member.imageUrl} alt={member.name} width={96} height={96} layout="responsive" className="hover:scale-110" />
-                </div>
-                <div>
-                  <h3 className="text-sm font-medium">{member.name}</h3>
-                  <p className="text-xs text-gray-500">{member.role}</p>
-                </div>
+  return (
+    <div className="bg-white py-12 px-4">
+      <div className="max-w-7xl mx-auto">
+        <h2 className="text-center text-3xl font-bold mb-10">You are in good company</h2>
+        <p className="text-xl mb-10 text-center text-gray-500">Meet the team members, early adopters, investors and community members</p>
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-8">
+          {teamMembers.map(member => (
+            <div key={member.name} className="text-center space-y-2 transition duration-300 ease-in-out hover:scale-105">
+              <div className="w-24 h-24 mx-auto rounded-full overflow-hidden border-2 border-gray-300 hover:border-gray-500">
+                <Image src={member.imageUrl} alt={member.name} width={96} height={96} layout="responsive" className="hover:scale-110" />
               </div>
-            ))}
-          </div>
+              <div>
+                <h3 className="text-sm font-medium">{member.name}</h3>
+                <p className="text-xs text-gray-500">{member.role}</p>
+              </div>
+            </div>
+          ))}
         </div>
       </div>
-    );
-  }
-  
+    </div>
+  );
+}

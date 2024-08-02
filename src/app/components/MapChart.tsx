@@ -10,7 +10,6 @@ const data = [
   { country: 'United States', value: 3 },
   { country: 'Canada', value: 2 },
   { country: 'Germany', value: 1 },
-  // Add more countries as needed
 ];
 
 const MapChart = () => {
@@ -33,7 +32,6 @@ const MapChart = () => {
           }
         </Geographies>
       </ComposableMap>
-      {/* <ReactTooltip /> */}
     </>
   );
 };

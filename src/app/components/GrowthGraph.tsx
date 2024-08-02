@@ -438,7 +438,6 @@ const data12 = [
     "How Do You Rate the Leadership in Your Department?": 8.7,
     "How Secure Do You Feel in Your Job?": 8.6
   },
-  // The data continues similarly for the following months
   {
     "Timestamp": "March 2023",
     "Does Your Work Align with Company Goals?": 8.9,
@@ -679,22 +678,6 @@ export default function TickPlacementBars() {
 
 
   return (
-    // <div className='w-[100%] grid grid-cols-3 gap-4'>
-
-    //   <div className='graph_card'>
-    //     <BarCharts data={data1} dataKey="CreatedAt"></BarCharts>
-    //   </div>
-
-    //   <div className='graph_card'>
-    //     <BarCharts data={data2} dataKey="Month"></BarCharts>
-    //   </div>
-
-    //   <div className='graph_card'>
-    //     <BarCharts data={data3} dataKey="BookingId → CreatedAt"></BarCharts>
-    //   </div>
-    // </div>
-
-
     <div className="flex justify-center items-center py-8">
       <div className="container mx-auto px-4">
         <h2 className="text-3xl font-semibold text-gray-700 mb-8">Growth</h2>
@@ -719,10 +702,6 @@ export default function TickPlacementBars() {
             <h3 className=" font-semi-bold mb-2 text-gray-600">GitHub: Monthly new stars</h3>
             <BarCharts data={data5} dataKey="Starred At" />
           </div>
-          {/* <div className="bg-white p-4 rounded-lg shadow-lg">
-            <h3 className=" font-semi-bold mb-2 text-gray-600">GitHub: Total Stars (cumulative)</h3>
-            <BarCharts data={data6} dataKey="Starred At" />
-          </div> */}
           <div className="bg-white p-4 rounded-lg shadow-lg">
             <h3 className="font-semi-bold mb-2 text-gray-600">GitHub: Total Stars (cumulative)</h3>
             <ResponsiveContainer width="100%" height={300}>

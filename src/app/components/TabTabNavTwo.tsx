@@ -8,7 +8,6 @@ import {
     TableRow,
 } from "../../components/ui/table";
 
-// Updated data for the table reflecting global salary bands
 const salaryData = [
     {
         title: "Software Engineer",

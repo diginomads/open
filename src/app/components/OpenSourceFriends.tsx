@@ -60,7 +60,6 @@ export default function OpenSourceFriends() {
                 <h3 className="text-xl font-semibold mb-3">{project.name}</h3>
                 <p className="mb-6">{project.description}</p>
               </div>
-              {/* Adjusted styles for the button */}
               <button className="bg-gray-200 text-gray-900 hover:bg-gray-300 transition-colors py-2 px-4 rounded self-start">Learn more</button>
             </div>
           ))}

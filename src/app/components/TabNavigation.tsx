@@ -1,5 +1,4 @@
-// src/app/components/TabNavigation.tsx
-'use client'; // Ensure this is at the top for Next.js client components
+'use client';
 
 import React, { useState } from 'react';
 
@@ -15,9 +14,8 @@ const TabNavigation: React.FC = () => {
           <button
             key={tab}
             onClick={() => setActiveTab(tab)}
-            className={`py-5 pb-6 pl-2 text-sm font-bold ${
-              activeTab === tab ? 'text-gray-600 border-b-2 border-gray-500' : 'text-gray-600 hover:text-gray-900'
-            }`}
+            className={`py-5 pb-6 pl-2 text-sm font-bold ${activeTab === tab ? 'text-gray-600 border-b-2 border-gray-500' : 'text-gray-600 hover:text-gray-900'
+              }`}
             style={{ fontFamily: '"Arial", sans-serif' }}
           >
             {tab}
@@ -29,7 +27,7 @@ const TabNavigation: React.FC = () => {
       </div>
     </div>
 
-    
+
   );
 };
 
