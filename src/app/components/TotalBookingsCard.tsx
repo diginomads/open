@@ -1,5 +1,13 @@
 import React from 'react';
 
+interface TotalBookingsCardProps {
+    totalBookings: number;
+    year: number;
+    changePercentage: number;
+    previousYear: number;
+}
+
+
 const TotalBookingsCard = ({ totalBookings, year, changePercentage, previousYear }) => {
     return (
         <div className="bg-white p-6 rounded-lg shadow-md text-center">
