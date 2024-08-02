@@ -821,12 +821,6 @@ export default function TickPlacementBars() {
             <p className="text-center text-gray-500 mt-2">Total Funding</p>
           </div>
 
-
-
-
-
-          {/* <DonutChart /> */}
-
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mt-5">
           <TotalBookingsCard
@@ -1400,9 +1394,8 @@ export default function TickPlacementBars() {
           </div>
         </div>
 
-        {/* <div className="container mx-auto p-8"> */}
         <DonationProgress currentAmount={currentAmount} goalAmount={goalAmount} />
-        {/* </div> */}
+        
 
 
 
