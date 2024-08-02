@@ -10,7 +10,7 @@ const NavBar = () => {
     const [activeTab, setActiveTab] = useState('');
     const [hoveredItem, setHoveredItem] = useState('');
 
-    const handleMouseEnter = (tab) => {
+    const handleMouseEnter = (tab: string) => {
         setActiveTab(tab);
     };
 
