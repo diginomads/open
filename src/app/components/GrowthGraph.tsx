@@ -649,24 +649,25 @@ export default function TickPlacementBars() {
     'middle' | 'tick'
   >('middle');
 
-  // Dummy data for the card component
+
   const totalBookings1 = 3153909;
   const year1 = 2024;
   const changePercentage1 = 156.37;
   const previousYear1 = 1229472;
 
-  const totalBookings2 = "188,710";
-  const year2 = "Q3 2024";
+
+  const totalBookings2 = 188710;
+  const year2 = 2024;
   const changePercentage2 = 7.07;
   const previousYear2 = 176254;
 
-  const totalBookings3 = "3,102,517";
-  const year3 = "Q3 2024";
+  const totalBookings3 = 3102517;
+  const year3 = 2024;
   const changePercentage3 = 10.46;
   const previousYear3 = 2808629;
 
-  const totalBookings4 = "30,196";
-  const year4 = "Q3 2024";
+  const totalBookings4 = 30196;
+  const year4 = 2024;
   const changePercentage4 = 1.79;
   const previousYear4 = 29665;
 
