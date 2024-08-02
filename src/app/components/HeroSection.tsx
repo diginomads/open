@@ -278,7 +278,7 @@ const NavBar = () => {
             </div>
             <nav className="absolute left-1/2 transform -translate-x-1/2">
                 <ul className="flex space-x-4 rounded-full border-2 border-black p-1">
-                    {['PRODUCT', 'SOLUTIONS', 'COMPANY', 'RESOURCES', 'PRICING'].map((tab) => (
+                    {(['PRODUCT', 'SOLUTIONS', 'COMPANY', 'RESOURCES', 'PRICING'] as TabKey[]).map((tab) => (
                         <li
                             key={tab}
                             className="relative group"
@@ -297,6 +297,7 @@ const NavBar = () => {
                         </li>
                     ))}
                 </ul>
+
             </nav>
             <button className="bg-black text-white rounded-full py-2 px-4" style={{ marginRight: '10%' }}>Try out Demo</button>
         </div>
