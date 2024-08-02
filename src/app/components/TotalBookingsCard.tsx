@@ -7,8 +7,7 @@ interface TotalBookingsCardProps {
     previousYear: number;
 }
 
-
-const TotalBookingsCard = ({ totalBookings, year, changePercentage, previousYear }) => {
+const TotalBookingsCard: React.FC<TotalBookingsCardProps> = ({ totalBookings, year, changePercentage, previousYear }) => {
     return (
         <div className="bg-white p-6 rounded-lg shadow-md text-center">
             <h3 className="text-lg font-semi-bold text-left text-gray-500">Total Bookings</h3>
