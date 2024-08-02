@@ -5,12 +5,15 @@ import Image from 'next/image';
 import logo from '/public/images/logo.png';
 import { FaUser, FaBuilding, FaLayerGroup, FaLock, FaRocket, FaSync, FaHeart, FaFileAlt, FaExchangeAlt, FaDatabase, FaShieldAlt, FaHandshake, FaUniversity, FaHandHoldingUsd, FaBriefcase, FaStar, FaRegNewspaper, FaInfoCircle, FaBook, FaRoad, FaGithub, FaClipboardList, FaBlog } from 'react-icons/fa';
 
+type TabKey = 'PRODUCT' | 'SOLUTIONS' | 'COMPANY' | 'RESOURCES';
+
+
 
 const NavBar = () => {
-    const [activeTab, setActiveTab] = useState('');
-    const [hoveredItem, setHoveredItem] = useState('');
+    const [activeTab, setActiveTab] = useState<TabKey | ''>('');
+    const [hoveredItem, setHoveredItem] = useState<string>('');
 
-    const handleMouseEnter = (tab: string) => {
+    const handleMouseEnter = (tab: TabKey) => {
         setActiveTab(tab);
     };
 
@@ -19,7 +22,7 @@ const NavBar = () => {
         setHoveredItem('');
     };
 
-    const dropdownMenus = {
+    const dropdownMenus: Record<TabKey, JSX.Element> = {
         PRODUCT: (
             <div className="absolute top-full mt-2 w-[600px] rounded-lg shadow-lg bg-white ring-1 ring-black ring-opacity-5 transition duration-300 ease-out">
                 <div className="py-4 px-6 grid grid-cols-2 gap-6">
@@ -196,8 +199,8 @@ const NavBar = () => {
                 </div>
             </div>
         ),
-        
-        
+
+
 
         RESOURCES: (
             <div className="absolute top-full mt-2 w-[500px] rounded-lg shadow-lg bg-white ring-1 ring-black ring-opacity-5 transition duration-300 ease-out">
