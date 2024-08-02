@@ -5,6 +5,13 @@ import Image from 'next/image';
 import logo from '/public/images/logo.png';
 import { FaUser, FaBuilding, FaLayerGroup, FaLock, FaRocket, FaSync, FaHeart, FaFileAlt, FaExchangeAlt, FaDatabase, FaShieldAlt, FaHandshake, FaUniversity, FaHandHoldingUsd, FaBriefcase, FaStar, FaRegNewspaper, FaInfoCircle, FaBook, FaRoad, FaGithub, FaClipboardList, FaBlog } from 'react-icons/fa';
 
+interface TotalBookingsCardProps {
+    totalBookings: number;
+    year: number;
+    changePercentage: number;
+    previousYear: number;
+}
+
 type TabKey = 'PRODUCT' | 'SOLUTIONS' | 'COMPANY' | 'RESOURCES';
 
 
