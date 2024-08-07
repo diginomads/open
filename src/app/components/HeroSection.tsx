@@ -323,7 +323,7 @@ export default function HeroSection() {
                     <span className="block">company.</span>
                 </h1>
                 <p className="mt-5 text-lg text-gray-600 mt-10">
-                    <strong>Cal.com, Inc.</strong> is an{' '}
+                    <strong>Nomad.Ai, </strong> is an{' '}
                     <a href="#" className="text-gray-600 underline">
                         Open Startup
                     </a>
