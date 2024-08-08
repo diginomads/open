@@ -1,8 +1,8 @@
 'use client'
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Image from 'next/image';
 import logo from '/public/images/logo.png';
-import { FaUser, FaBuilding, FaLayerGroup, FaLock, FaRocket, FaSync, FaHeart, FaFileAlt, FaExchangeAlt, FaDatabase, FaShieldAlt, FaHandshake, FaUniversity, FaHandHoldingUsd, FaBriefcase, FaStar, FaRegNewspaper, FaInfoCircle, FaBook, FaRoad, FaGithub, FaClipboardList, FaBlog } from 'react-icons/fa';
+import { FaBars, FaTimes, FaUser, FaBuilding, FaLayerGroup, FaLock, FaRocket, FaSync, FaHeart, FaFileAlt, FaExchangeAlt, FaDatabase, FaShieldAlt, FaHandshake, FaUniversity, FaHandHoldingUsd, FaBriefcase, FaStar, FaRegNewspaper, FaInfoCircle, FaBook, FaRoad, FaGithub, FaClipboardList, FaBlog } from 'react-icons/fa';
 
 interface TotalBookingsCardProps {
     totalBookings: number;
@@ -13,11 +13,20 @@ interface TotalBookingsCardProps {
 
 type TabKey = 'PRODUCT' | 'SOLUTIONS' | 'COMPANY' | 'RESOURCES';
 
-
-
 const NavBar = () => {
     const [activeTab, setActiveTab] = useState<TabKey | ''>('');
-    const [hoveredItem, setHoveredItem] = useState<string>('');
+    const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+    const [isMobile, setIsMobile] = useState(false);
+
+    useEffect(() => {
+        const handleResize = () => {
+            setIsMobile(window.innerWidth <= 768);
+        };
+
+        handleResize(); // Check the screen size on initial load
+        window.addEventListener('resize', handleResize);
+        return () => window.removeEventListener('resize', handleResize);
+    }, []);
 
     const handleMouseEnter = (tab: TabKey) => {
         setActiveTab(tab);
@@ -25,8 +34,8 @@ const NavBar = () => {
 
     const handleMouseLeave = () => {
         setActiveTab('');
-        setHoveredItem('');
     };
+
 
     const dropdownMenus: Record<TabKey, JSX.Element> = {
         PRODUCT: (
@@ -94,7 +103,6 @@ const NavBar = () => {
                 </div>
             </div>
         ),
-
 
         SOLUTIONS: (
             <div className="absolute top-full mt-2 w-[600px] rounded-lg shadow-lg bg-white ring-1 ring-black ring-opacity-5 transition duration-300 ease-out">
@@ -206,8 +214,6 @@ const NavBar = () => {
             </div>
         ),
 
-
-
         RESOURCES: (
             <div className="absolute top-full mt-2 w-[500px] rounded-lg shadow-lg bg-white ring-1 ring-black ring-opacity-5 transition duration-300 ease-out">
                 <div className="py-4 px-6 grid grid-cols-2 gap-6">
@@ -271,41 +277,79 @@ const NavBar = () => {
                 </div>
             </div>
         ),
-
-
     };
 
     return (
-        <div className="relative flex justify-between items-center py-4  bg-gray-100 px-8">
-            <div className="flex items-center space-x-4" style={{ marginLeft: '10%' }}>
-                <Image src={logo} alt="Nomad AI Logo" width={30} height={30} />
-                <div className="text-2xl font-bold">Nomad AI</div>
-                <div className="bg-green-200 text-green-800 px-2 py-1 rounded-full text-xs">HIRING</div>
-            </div>
-            <nav className="absolute left-1/2 transform -translate-x-1/2">
-                <ul className="flex space-x-4 rounded-full border-2 border-black p-1">
-                    {(['PRODUCT', 'SOLUTIONS', 'COMPANY', 'RESOURCES', 'PRICING'] as TabKey[]).map((tab) => (
-                        <li
-                            key={tab}
-                            className="relative group"
-                            onMouseEnter={() => handleMouseEnter(tab)}
-                            onMouseLeave={handleMouseLeave}
-                        >
-                            <button
-                                className={`py-2 px-4 rounded-full font-semibold transition duration-300 ease-out ${activeTab === tab
-                                    ? 'bg-black text-white'
-                                    : 'bg-transparent text-black'
-                                    }`}
-                            >
-                                {tab}
-                            </button>
-                            {activeTab === tab && dropdownMenus[tab]}
-                        </li>
-                    ))}
-                </ul>
-
-            </nav>
+        <div className="relative flex justify-between items-center py-4 bg-gray-100 px-8">
+            {isMobile ? (
+                <div className="flex items-center justify-between w-full">
+                    <button
+                        onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+                        className="text-3xl"
+                    >
+                        {isMobileMenuOpen ? <FaTimes /> : <FaBars />}
+                    </button>
+                </div>
+            ) : (
+                <>
+                    <div className="flex items-center space-x-4" style={{ marginLeft: '10%' }}>
+                        <Image src={logo} alt="Nomad AI Logo" width={30} height={30} />
+                        <div className="text-2xl font-bold">Nomad AI</div>
+                        <div className="bg-green-200 text-green-800 px-2 py-1 rounded-full text-xs">HIRING</div>
+                    </div>
+                    <nav className="absolute left-1/2 transform -translate-x-1/2">
+                        <ul className="flex space-x-4 rounded-full border-2 border-black p-1">
+                            {(['PRODUCT', 'SOLUTIONS', 'COMPANY', 'RESOURCES', 'PRICING'] as TabKey[]).map((tab) => (
+                                <li
+                                    key={tab}
+                                    className="relative group"
+                                    onMouseEnter={() => handleMouseEnter(tab)}
+                                    onMouseLeave={handleMouseLeave}
+                                >
+                                    <button
+                                        className={`py-2 px-4 rounded-full font-semibold transition duration-300 ease-out ${activeTab === tab
+                                            ? 'bg-black text-white'
+                                            : 'bg-transparent text-black'
+                                            }`}
+                                    >
+                                        {tab}
+                                    </button>
+                                    {activeTab === tab && dropdownMenus[tab]}
+                                </li>
+                            ))}
+                        </ul>
+                    </nav>
+                </>
+            )}
             <button className="bg-black text-white rounded-full py-2 px-4" style={{ marginRight: '10%' }}>Try out Demo</button>
+
+            {isMobile && isMobileMenuOpen && (
+                <nav className="absolute top-full left-0 w-full bg-white shadow-lg z-50">
+                    <div className="flex items-center space-x-4 p-4">
+                        <Image src={logo} alt="Nomad AI Logo" width={30} height={30} />
+                        <div className="text-2xl font-bold">Nomad AI</div>
+                    </div>
+
+                    <ul className="flex flex-col space-y-4 p-4">
+                        {(['PRODUCT', 'SOLUTIONS', 'COMPANY', 'RESOURCES', 'PRICING'] as TabKey[]).map((tab) => (
+                            <li key={tab}>
+                                <div
+                                    className={`py-2 px-4 rounded-full font-semibold transition duration-300 ease-out ${activeTab === tab
+                                        ? 'bg-black text-white'
+                                        : 'bg-transparent text-black'
+                                        }`}
+                                // onClick={() => {
+                                //     handleMouseEnter(tab);
+                                //     setIsMobileMenuOpen(false);
+                                // }}
+                                >
+                                    {tab}
+                                </div>
+                            </li>
+                        ))}
+                    </ul>
+                </nav>
+            )}
         </div>
     );
 };
